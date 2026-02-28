@@ -1,0 +1,38 @@
+# ============================================================
+#  Urban Heat Island Dashboard — requirements.txt
+#  Install: pip install -r requirements.txt
+# ============================================================
+
+# ── Core data science ────────────────────────────────────────
+numpy>=1.24
+pandas>=2.0.0
+scipy>=1.10
+
+# ── Machine learning / stats ─────────────────────────────────
+scikit-learn>=1.3
+statsmodels>=0.14
+
+# ── Dashboard ────────────────────────────────────────────────
+streamlit>=1.35
+
+# ── Visualisation ────────────────────────────────────────────
+plotly>=5.18
+
+# ── Geospatial (Step 1 / LISA) ───────────────────────────────
+geopandas>=1.0
+libpysal>=4.10
+esda>=2.6
+splot>=1.1
+
+# ── Optional: spatial weights / mapping ──────────────────────
+pysal>=25.0           # meta-package, pulls in libpysal + esda
+folium>=0.16          # used in original notebooks for HTML maps
+mapclassify>=2.6
+
+# ── Time-series extras ───────────────────────────────────────
+# statsmodels already covers SARIMAX; pmdarima is optional
+# pmdarima>=2.0       # uncomment for auto_arima
+
+# ── Notebook support (optional, not needed to run dashboard) ─
+# jupyter>=1.0
+# ipykernel>=6.0

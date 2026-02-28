@@ -1,0 +1,12 @@
+1) Convert bar graph into map in tableau
+2) Convert data field to geographical area
+3) bar graphs are nearly the same size, how to move the data view?
+4) How to increase the difference between the bar heights
+5) I want to make a triple line graph in tableau
+6) Resetting default colors in graphs
+7) The graph is very erratic and unclear for interpretations
+8) Should I compute using table across or down?
+9) Seeing no bars, and the scale is in 50000%
+10) How to enable legend for colors?
+11) Scatterplot troubleshooting tips
+12) The lines are close and near the top, can I improve the clarity
