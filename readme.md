@@ -179,7 +179,7 @@ Built with pure HTML, CSS, and JavaScript — fully static, no dependencies, dep
 
 <div align="center">
 
-**Departmental Statistics Association**
+**Departmental Statistics Association ·**
 **Department of Statistics · Faculty of Science**
 **The Maharaja Sayajirao University of Baroda · Est. 1949**
 
