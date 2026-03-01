@@ -8,7 +8,7 @@
 
 **Applying Data Science to Real-World Problems**
 
-Organized by the **Departmental Statistics Association**,Department of Statistics, Faculty of Science
+Organized by the **Departmental Statistics Association**, Department of Statistics, Faculty of Science,
 **The Maharaja Sayajirao University of Baroda** · Est. 1949
 
 <br/>
@@ -179,7 +179,7 @@ Built with pure HTML, CSS, and JavaScript — fully static, no dependencies, dep
 
 <div align="center">
 
-**Departmental Statistics Associtiation**
+**Departmental Statistics Association**
 **Department of Statistics · Faculty of Science**
 **The Maharaja Sayajirao University of Baroda · Est. 1949**
 
