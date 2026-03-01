@@ -1,3 +1,27 @@
 [submodule "ROUND - 2/Stochastic-Minds-P1/DataVerse-P1-Stochastic_minds"]
 	path = ROUND - 2/Stochastic-Minds-P1/DataVerse-P1-Stochastic_minds
 	url = https://github.com/thakkarneel85-spec/DataVerse-P1-Stochastic_minds
+[submodule "ROUND - 2/new-safe-lending-"]
+	path = ROUND - 2/new-safe-lending-
+	url = https://github.com/shubham814026/new-safe-lending-
+[submodule "ROUND - 2/--force"]
+	path = ROUND - 2/--force
+	url = https://github.com/rajatksoni/DataVerse-P2
+[submodule "ROUND - 2/DataVerse"]
+	path = ROUND - 2/DataVerse
+	url = https://github.com/Harnitya29/DataVerse
+[submodule "ROUND - 2/Analysis"]
+	path = ROUND - 2/Analysis
+	url = https://github.com/saltyblackberry/Analysis
+[submodule "ROUND - 2/DataVerse-P3-DATA_ALCHEMIST"]
+	path = ROUND - 2/DataVerse-P3-DATA_ALCHEMIST
+	url = https://github.com/Zubiyah19/DataVerse-P3-DATA_ALCHEMIST.git
+[submodule "ROUND - 2/The_Urban_Heat_Mystery_16"]
+	path = ROUND - 2/The_Urban_Heat_Mystery_16
+	url = https://github.com/smritius217-crypto/The_Urban_Heat_Mystery_16
+[submodule "ROUND - 2/Helix"]
+	path = ROUND - 2/Helix
+	url = https://github.com/Accrein/Helix
+[submodule "ROUND - 2/infero-P3"]
+	path = ROUND - 2/infero-P3
+	url = https://github.com/RISHAH18/infero-P3
