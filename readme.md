@@ -172,7 +172,7 @@ Built with pure HTML, CSS, and JavaScript — fully static, no dependencies, dep
 |---|---|
 | 📧 Email | [dataversestats@gmail.com](mailto:dataversestats@gmail.com) |
 | 📞 Dharmik | +91 63540 93708 |
-| 📞 Alok | +91 63540 93708 |
+| 📞 Alok | +91 63539 08759 |
 | 🏛️ Department | Dept. of Statistics, Faculty of Science, MSU Baroda |
 
 ---
