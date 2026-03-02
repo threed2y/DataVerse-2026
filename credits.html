@@ -1,299 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Credits — DataVerse 2026</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0a0a0f;
-      --surface: #111118;
-      --card: #16161f;
-      --accent: #6c63ff;
-      --accent2: #a78bfa;
-      --accent3: #38bdf8;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --border: rgba(108,99,255,0.18);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ── animated background dots ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(108,99,255,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(56,189,248,0.06) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── nav ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(10,10,15,0.85);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      height: 60px;
-    }
-
-    .nav-brand {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.25em;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent2); }
-
-    /* ── hero ── */
-    .hero {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 6rem 1.5rem 3rem;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      margin-bottom: 1.4rem;
-      background: rgba(108,99,255,0.07);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      background: linear-gradient(135deg, #fff 30%, var(--accent2) 70%, var(--accent3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-sub {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ── divider ── */
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent3));
-      border-radius: 2px;
-      margin: 2rem auto 3.5rem;
-    }
-
-    /* ── grid ── */
-    .section {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem 5rem;
-    }
-
-    .credits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .credit-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.6rem 1.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    }
-
-    .credit-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent3));
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .credit-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(108,99,255,0.15);
-      border-color: rgba(108,99,255,0.4);
-    }
-    .credit-card:hover::before { opacity: 1; }
-
-    .role-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-      font-weight: 600;
-    }
-
-    .role-icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-
-    .member-names {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    /* ── acknowledgement banner ── */
-    .ack-banner {
-      margin-top: 3rem;
-      background: linear-gradient(135deg, rgba(108,99,255,0.12), rgba(56,189,248,0.08));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem 2.2rem;
-      text-align: center;
-    }
-
-    .ack-banner p {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 0.95rem;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .ack-banner p strong {
-      color: var(--accent2);
-      font-weight: 600;
-    }
-
-    /* ── footer ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 480px) {
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.78rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credits — DataVerse 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#020408;--bg-card:rgba(8,16,38,0.92);--cyan:#00d4ff;--blue:#0066ff;--purple:#7c3aed;--violet:#a855f7;--gold:#f59e0b;--text:#e2e8f0;--muted:#64748b;--border:rgba(0,212,255,0.15)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Rajdhani',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+#sf{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;opacity:.13}
+.o1{width:600px;height:600px;background:radial-gradient(circle,#0066ff,transparent 70%);top:-200px;left:-200px;animation:d1 20s infinite ease-in-out}
+.o2{width:500px;height:500px;background:radial-gradient(circle,#7c3aed,transparent 70%);bottom:-100px;right:-100px;animation:d2 25s infinite ease-in-out}
+@keyframes d1{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+@keyframes d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,-60px)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(2,4,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nl{font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:.2em;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+.nls{display:flex;gap:8px}
+.nls a{color:#94a3b8;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:6px;transition:all .3s;border:1px solid transparent}
+.nls a:hover,.nls a.act{color:var(--cyan);border-color:var(--border);background:rgba(0,212,255,.06);text-shadow:0 0 12px rgba(0,212,255,.5)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.ham span{display:block;width:24px;height:2px;background:var(--cyan);transition:all .3s}
+.pw{position:relative;z-index:1;padding-top:64px}
+.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 50px;position:relative}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.25);padding:6px 18px;border-radius:100px;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:var(--cyan);margin-bottom:32px;animation:fid .8s ease forwards}
+.bdot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.ht{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(2.2rem,7vw,5rem);line-height:.95;letter-spacing:-.02em;margin-bottom:16px;animation:fiu .8s ease .2s both}
+.ht .wd{background:linear-gradient(135deg,#fff 0%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ht .wv{background:linear-gradient(135deg,var(--violet) 0%,var(--blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.htag{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;color:#94a3b8;letter-spacing:.07em;max-width:560px;margin-bottom:0;animation:fiu .8s ease .4s both}
+section{position:relative;z-index:1;padding:60px 20px}
+.cnt{width:90%;max-width:1100px;margin:0 auto}
+.sh{text-align:center;margin-bottom:52px}
+.sl{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;display:block}
+.st{font-family:'Orbitron',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.5vw,2.3rem);background:linear-gradient(135deg,#fff 0%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.sln{width:56px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:0 auto}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:24px;margin-bottom:48px}
+.cc{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:30px 28px;backdrop-filter:blur(16px);transition:all .3s;position:relative;overflow:hidden;animation:fiu .6s ease both}
+.cc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .3s}
+.cc:hover{border-color:rgba(0,212,255,.28);transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.5)}
+.cc:hover::before{opacity:1}
+.cc-icon{font-size:2rem;margin-bottom:14px;display:block}
+.cc-role{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:700}
+.cc-name-tag{display:inline-block;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.18);color:var(--cyan);font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;padding:3px 10px;border-radius:100px;margin:3px 3px 0 0}
+.cc-desc{color:#94a3b8;font-size:1rem;line-height:1.75;font-weight:400;margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+.cc.c-violet::before{background:linear-gradient(90deg,transparent,var(--violet),transparent)}
+.cc.c-violet:hover{border-color:rgba(168,85,247,.28);box-shadow:0 20px 48px rgba(168,85,247,.12)}
+.cc.c-violet .cc-role{color:var(--violet)}
+.cc.c-violet .cc-name-tag{background:rgba(168,85,247,.07);border-color:rgba(168,85,247,.18);color:var(--violet)}
+.cc.c-gold::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cc.c-gold:hover{border-color:rgba(245,158,11,.28);box-shadow:0 20px 48px rgba(245,158,11,.1)}
+.cc.c-gold .cc-role{color:var(--gold)}
+.cc.c-gold .cc-name-tag{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.18);color:var(--gold)}
+.ack{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:36px 40px;backdrop-filter:blur(16px);text-align:center;position:relative;overflow:hidden}
+.ack::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),transparent)}
+.ack h3{font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:14px;letter-spacing:.06em}
+.ack p{color:#94a3b8;font-size:1.05rem;line-height:1.85;font-weight:400;max-width:700px;margin:0 auto}
+.ack p strong{color:var(--cyan);font-weight:600}
+footer{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:36px 20px;border-top:1px solid var(--border);text-align:center}
+.fl{font-family:'Orbitron',sans-serif;font-weight:700;font-size:.9rem;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.15em}
+footer p{color:var(--muted);font-size:.82rem;letter-spacing:.05em}
+@keyframes fid{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fiu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nls{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(2,4,8,.97);backdrop-filter:blur(20px);padding:18px;border-bottom:1px solid var(--border);gap:4px}
+  .nls.open{display:flex}
+  .ham{display:flex}
+  .cg{grid-template-columns:1fr}
+  .ack{padding:28px 22px}
+}
+</style>
 </head>
 <body>
+<canvas id="sf"></canvas>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
 
-  <nav>
-    <a href="https://threed2y.github.io/DataVerse-2026/" class="nav-brand">DATAVERSE</a>
-    <ul class="nav-links">
-      <li><a href="https://threed2y.github.io/DataVerse-2026/index.html">Home</a></li>
-      <li><a href="https://threed2y.github.io/DataVerse-2026/rounds.html">Rounds</a></li>
-      <li><a href="https://threed2y.github.io/DataVerse-2026/winners.html">Winners</a></li>
-      <li><a href="https://threed2y.github.io/DataVerse-2026/about.html">About</a></li>
-      <li><a href="#" class="active">Credits</a></li>
-    </ul>
-  </nav>
+<nav>
+  <a href="index.html" class="nl">DATAVERSE</a>
+  <div class="nls" id="nls">
+    <a href="index.html">Home</a>
+    <a href="rounds.html">Rounds</a>
+    <a href="winners.html">Winners</a>
+    <a href="about.html">About</a>
+    <a href="credits.html" class="act">Credits</a>
+  </div>
+  <div class="ham" onclick="tN()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="pw">
 
   <section class="hero">
-    <div class="hero-tag">Behind the Scenes</div>
-    <h1>Credits &amp;<br>Contributions</h1>
-    <p class="hero-sub">DataVerse 2026 was brought to life through the dedication and expertise of an exceptional team.</p>
-    <div class="divider"></div>
+    <div class="hbadge"><div class="bdot"></div>DATAVERSE · 2026 · DSA</div>
+    <h1 class="ht"><span class="wd">CREDITS &amp;</span><br><span class="wv">CONTRIBUTIONS</span></h1>
+    <p class="htag">The people who built DataVerse — from concept to code, coordination to completion.</p>
   </section>
 
-  <section class="section">
-    <div class="credits-grid">
-
-      <div class="credit-card">
-        <span class="role-icon">💻</span>
-        <div class="role-label">Technical Development</div>
-        <div class="member-names">Rupesh Pandey</div>
+  <section>
+    <div class="cnt">
+      <div class="sh">
+        <span class="sl">// the team</span>
+        <div class="st">Meet The Makers</div>
+        <div class="sln"></div>
       </div>
 
-      <div class="credit-card">
-        <span class="role-icon">🎨</span>
-        <div class="role-label">Poster Design &amp; Visual Communication</div>
-        <div class="member-names">Amrita Sudani</div>
+      <div class="cg">
+
+        <div class="cc" style="animation-delay:.1s">
+          <span class="cc-icon">💻</span>
+          <div class="cc-role">Technical Development</div>
+          <span class="cc-name-tag">Rupesh Pandey</span>
+          <div class="cc-desc">
+            Responsible for end-to-end technical execution of the DataVerse 2026 platform — including website architecture, front-end development, deployment via GitHub Pages, and integration of all competition materials into a cohesive digital experience.
+          </div>
+        </div>
+
+        <div class="cc c-violet" style="animation-delay:.2s">
+          <span class="cc-icon">🎨</span>
+          <div class="cc-role">Poster Design &amp; Visual Communication</div>
+          <span class="cc-name-tag">Amrita Sudani</span>
+          <div class="cc-desc">
+            Crafted all visual communication assets for DataVerse 2026, including competition posters, promotional graphics, and branding materials that defined the event's identity and helped attract participants across campus.
+          </div>
+        </div>
+
+        <div class="cc c-gold" style="animation-delay:.3s">
+          <span class="cc-icon">💡</span>
+          <div class="cc-role">Concept &amp; Ideation</div>
+          <span class="cc-name-tag">Tanya Chaurasia</span>
+          <div class="cc-desc">
+            Drove the creative vision behind DataVerse 2026 — from defining the competition theme and structure to shaping the problem statements that challenged participants to transform real-world data into actionable insight.
+          </div>
+        </div>
+
+        <div class="cc c-violet" style="animation-delay:.4s">
+          <span class="cc-icon">🗂️</span>
+          <div class="cc-role">Management &amp; Coordination</div>
+          <span class="cc-name-tag">Dharmik Kantesariya</span>
+          <span class="cc-name-tag">Rashmi Sojitra</span>
+          <span class="cc-name-tag">Matra Acharya</span>
+          <div class="cc-desc">
+            Oversaw event logistics, team communication, scheduling, and on-ground coordination across all three competition days. Ensured smooth execution of both rounds, managed participant queries, and kept every moving part of the event running on time.
+          </div>
+        </div>
+
+        <div class="cc" style="animation-delay:.5s">
+          <span class="cc-icon">📊</span>
+          <div class="cc-role">Data Collection &amp; Compilation</div>
+          <span class="cc-name-tag">Alokchandra Jha</span>
+          <div class="cc-desc">
+            Led the sourcing, cleaning, and curation of datasets used throughout the competition. Ensured that Round 1 problem sets were grounded in meaningful, real-world data across the three domains: Urban &amp; Social, Environmental &amp; Scientific, and Business &amp; Economic Analytics.
+          </div>
+        </div>
+
       </div>
 
-      <div class="credit-card">
-        <span class="role-icon">💡</span>
-        <div class="role-label">Concept &amp; Ideation</div>
-        <div class="member-names">Tanya Chaurasia</div>
-      </div>
-
-      <div class="credit-card">
-        <span class="role-icon">🗂️</span>
-        <div class="role-label">Management &amp; Coordination</div>
-        <div class="member-names">Dharmik Kantesariya<br>Rashmi Sojitra<br>Matra Acharya</div>
-      </div>
-
-      <div class="credit-card">
-        <span class="role-icon">📊</span>
-        <div class="role-label">Data Collection &amp; Compilation</div>
-        <div class="member-names">Alokchandra Jha</div>
+      <div class="ack">
+        <h3>🏛️ Organizational Acknowledgement</h3>
+        <p>
+          The <strong>Departmental Statistics Association (DSA)</strong>, Department of Statistics, Faculty of Science, The Maharaja Sayajirao University of Baroda sincerely <strong>acknowledges and appreciates</strong> the dedication, professionalism, and valuable contributions of every team member. This initiative was successfully executed through their collaborative efforts, and the organization is proud to recognize each individual's role in making DataVerse 2026 a resounding success.
+        </p>
       </div>
 
     </div>
-
-    <div class="ack-banner">
-      <p>The organization sincerely <strong>acknowledges and appreciates</strong> the dedication, professionalism, and valuable contributions of every team member who made this initiative a success.</p>
-    </div>
   </section>
 
-  <footer>
-    DATAVERSE 2026 &nbsp;·&nbsp; Departmental Statistics Association &nbsp;·&nbsp; Dept. of Statistics &nbsp;·&nbsp; Faculty of Science &nbsp;·&nbsp; MSU Baroda &nbsp;·&nbsp; Est. 1949
-  </footer>
+</div>
 
+<footer>
+  <span class="fl">DATAVERSE 2026</span>
+  <p>Departmental Statistics Association · Dept. of Statistics · Faculty of Science · MSU Baroda · Est. 1949</p>
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('sf'),x=c.getContext('2d'),S=[];
+  function R(){c.width=innerWidth;c.height=innerHeight;}
+  function I(){S=[];for(var i=0;i<220;i++)S.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3,o:Math.random()*.8+.1,s:Math.random()*.35+.04,t:Math.random()*Math.PI*2});}
+  function A(){x.clearRect(0,0,c.width,c.height);S.forEach(function(s){s.t+=.018;x.beginPath();x.arc(s.x,s.y,s.r,0,Math.PI*2);x.fillStyle='rgba(200,220,255,'+(s.o*(.65+.35*Math.sin(s.t)))+')';x.fill();s.y-=s.s;if(s.y<0){s.y=c.height;s.x=Math.random()*c.width;}});requestAnimationFrame(A);}
+  window.addEventListener('resize',function(){R();I();});R();I();A();
+})();
+function tN(){document.getElementById('nls').classList.toggle('open');}
+</script>
 </body>
 </html>
