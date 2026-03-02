@@ -24,20 +24,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
 .ham span{display:block;width:24px;height:2px;background:var(--cyan);transition:all .3s}
 .pw{position:relative;z-index:1;padding-top:64px}
-.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 50px;position:relative}
+
+/* Hero */
+.hero{min-height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 50px}
 .hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.25);padding:6px 18px;border-radius:100px;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:var(--cyan);margin-bottom:32px;animation:fid .8s ease forwards}
 .bdot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
 .ht{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(2.2rem,7vw,5rem);line-height:.95;letter-spacing:-.02em;margin-bottom:16px;animation:fiu .8s ease .2s both}
 .ht .wd{background:linear-gradient(135deg,#fff 0%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ht .wv{background:linear-gradient(135deg,var(--violet) 0%,var(--blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.htag{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;color:#94a3b8;letter-spacing:.07em;max-width:560px;margin-bottom:0;animation:fiu .8s ease .4s both}
+.htag{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;color:#94a3b8;letter-spacing:.07em;max-width:560px;animation:fiu .8s ease .4s both}
+
+/* Layout */
 section{position:relative;z-index:1;padding:60px 20px}
 .cnt{width:90%;max-width:1100px;margin:0 auto}
 .sh{text-align:center;margin-bottom:52px}
 .sl{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;display:block}
 .st{font-family:'Orbitron',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.5vw,2.3rem);background:linear-gradient(135deg,#fff 0%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
 .sln{width:56px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin:0 auto}
+
+/* Team Cards */
 .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:24px;margin-bottom:48px}
 .cc{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:30px 28px;backdrop-filter:blur(16px);transition:all .3s;position:relative;overflow:hidden;animation:fiu .6s ease both}
 .cc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .3s}
@@ -55,16 +61,188 @@ section{position:relative;z-index:1;padding:60px 20px}
 .cc.c-gold:hover{border-color:rgba(245,158,11,.28);box-shadow:0 20px 48px rgba(245,158,11,.1)}
 .cc.c-gold .cc-role{color:var(--gold)}
 .cc.c-gold .cc-name-tag{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.18);color:var(--gold)}
+
+/* Acknowledgement */
 .ack{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:36px 40px;backdrop-filter:blur(16px);text-align:center;position:relative;overflow:hidden}
 .ack::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),transparent)}
 .ack h3{font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:14px;letter-spacing:.06em}
 .ack p{color:#94a3b8;font-size:1.05rem;line-height:1.85;font-weight:400;max-width:700px;margin:0 auto}
 .ack p strong{color:var(--cyan);font-weight:600}
+
+/* ── Sponsor Section ── */
+.sponsor-wrap{margin-top:80px}
+
+.sponsor-card{
+  position:relative;
+  background:var(--bg-card);
+  border-radius:20px;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(245,158,11,.25);
+  transition:all .4s;
+  animation:fiu .7s ease .1s both;
+}
+.sponsor-card:hover{
+  border-color:rgba(245,158,11,.5);
+  box-shadow:0 24px 64px rgba(245,158,11,.12), 0 0 0 1px rgba(245,158,11,.1);
+  transform:translateY(-4px);
+}
+
+/* gold shimmer top bar */
+.sponsor-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),#fff,var(--gold),transparent);
+  background-size:200% 100%;
+  animation:shimmer 3s linear infinite;
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+.sponsor-inner{display:grid;grid-template-columns:260px 1fr;gap:0}
+
+/* left panel */
+.sponsor-left{
+  background:linear-gradient(160deg,rgba(245,158,11,.08),rgba(245,158,11,.03));
+  border-right:1px solid rgba(245,158,11,.15);
+  padding:40px 32px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  text-align:center;
+}
+.sponsor-badge{
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(245,158,11,.1);
+  border:1px solid rgba(245,158,11,.25);
+  padding:5px 14px;
+  border-radius:100px;
+}
+.sponsor-logo-box{
+  width:100px;height:100px;
+  border-radius:50%;
+  background:rgba(245,158,11,.07);
+  border:1.5px solid rgba(245,158,11,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.8rem;
+}
+.sponsor-name{
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
+  font-size:1.15rem;
+  color:#fff;
+  letter-spacing:.08em;
+}
+.sponsor-tagline{
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;
+  color:var(--muted);
+  letter-spacing:.1em;
+  line-height:1.6;
+}
+.sponsor-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 18px;
+  background:rgba(245,158,11,.1);
+  border:1px solid rgba(245,158,11,.3);
+  border-radius:8px;
+  color:var(--gold);
+  text-decoration:none;
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.1em;
+  transition:all .3s;
+}
+.sponsor-link:hover{background:rgba(245,158,11,.2);box-shadow:0 0 16px rgba(245,158,11,.2)}
+
+/* right panel */
+.sponsor-right{padding:40px 40px}
+.sponsor-section-label{
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:10px;
+  display:block;
+}
+.sponsor-heading{
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  color:#fff;
+  margin-bottom:18px;
+  line-height:1.3;
+}
+.sponsor-desc{
+  color:#94a3b8;
+  font-size:1.02rem;
+  line-height:1.82;
+  font-weight:400;
+  margin-bottom:24px;
+}
+.sponsor-desc strong{color:#e2e8f0;font-weight:600}
+
+/* chips */
+.sponsor-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  padding:4px 12px;
+  border-radius:100px;
+  background:rgba(0,212,255,.06);
+  border:1px solid rgba(0,212,255,.15);
+  color:var(--cyan);
+}
+
+/* gratitude quote */
+.gratitude{
+  background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(245,158,11,.03));
+  border:1px solid rgba(245,158,11,.18);
+  border-radius:12px;
+  padding:20px 24px;
+  position:relative;
+}
+.gratitude::before{
+  content:'\201C';
+  position:absolute;
+  top:-8px;left:16px;
+  font-size:3rem;
+  color:var(--gold);
+  opacity:.35;
+  font-family:Georgia,serif;
+  line-height:1;
+}
+.gratitude p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  font-style:italic;
+  padding-left:8px;
+}
+.gratitude p strong{color:var(--gold);font-style:normal}
+
+/* Footer */
 footer{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:36px 20px;border-top:1px solid var(--border);text-align:center}
 .fl{font-family:'Orbitron',sans-serif;font-weight:700;font-size:.9rem;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.15em}
 footer p{color:var(--muted);font-size:.82rem;letter-spacing:.05em}
+
 @keyframes fid{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fiu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:900px){
+  .sponsor-inner{grid-template-columns:1fr}
+  .sponsor-left{border-right:none;border-bottom:1px solid rgba(245,158,11,.15);padding:32px 24px}
+  .sponsor-right{padding:30px 24px}
+}
 @media(max-width:768px){
   nav{padding:0 20px}
   .nls{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(2,4,8,.97);backdrop-filter:blur(20px);padding:18px;border-bottom:1px solid var(--border);gap:4px}
@@ -94,12 +272,14 @@ footer p{color:var(--muted);font-size:.82rem;letter-spacing:.05em}
 
 <div class="pw">
 
+  <!-- Hero -->
   <section class="hero">
     <div class="hbadge"><div class="bdot"></div>DATAVERSE · 2026 · DSA</div>
     <h1 class="ht"><span class="wd">CREDITS &amp;</span><br><span class="wv">CONTRIBUTIONS</span></h1>
-    <p class="htag">The people who built DataVerse — from concept to code, coordination to completion.</p>
+    <p class="htag">The people and organizations who made DataVerse 2026 possible — from concept to code, coordination to completion.</p>
   </section>
 
+  <!-- Team Cards -->
   <section>
     <div class="cnt">
       <div class="sh">
@@ -159,11 +339,68 @@ footer p{color:var(--muted);font-size:.82rem;letter-spacing:.05em}
 
       </div>
 
+      <!-- Acknowledgement -->
       <div class="ack">
         <h3>🏛️ Organizational Acknowledgement</h3>
         <p>
           The <strong>Departmental Statistics Association (DSA)</strong>, Department of Statistics, Faculty of Science, The Maharaja Sayajirao University of Baroda sincerely <strong>acknowledges and appreciates</strong> the dedication, professionalism, and valuable contributions of every team member. This initiative was successfully executed through their collaborative efforts, and the organization is proud to recognize each individual's role in making DataVerse 2026 a resounding success.
         </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sponsor Section -->
+  <section>
+    <div class="cnt">
+      <div class="sh sponsor-wrap">
+        <span class="sl">// official sponsor</span>
+        <div class="st">Presented In Association With</div>
+        <div class="sln"></div>
+      </div>
+
+      <div class="sponsor-card">
+        <div class="sponsor-inner">
+
+          <!-- Left Panel -->
+          <div class="sponsor-left">
+            <div class="sponsor-badge">⭐ Title Sponsor</div>
+            <div class="sponsor-logo-box">📡</div>
+            <div class="sponsor-name">PHONON</div>
+            <div class="sponsor-tagline">Communications Pvt. Ltd.<br>Vadodara, Gujarat, India</div>
+            <a href="https://www.phonon.io" target="_blank" class="sponsor-link">↗ Visit phonon.io</a>
+          </div>
+
+          <!-- Right Panel -->
+          <div class="sponsor-right">
+            <span class="sponsor-section-label">// about the sponsor</span>
+            <div class="sponsor-heading">Phonon Communications Pvt. Ltd. —<br>The World's Best Communication Automation Platform</div>
+            <p class="sponsor-desc">
+              <strong>Phonon Communications Pvt. Ltd.</strong>, headquartered in Vadodara, Gujarat, is a globally recognized leader in <strong>Omnichannel Contact Centre and Communication Automation</strong>. Backed by the power of Machine Learning and Artificial Intelligence, Phonon delivers intelligent, scalable, and future-ready solutions that help enterprises transform their customer engagement ecosystems. Their flagship platform — <strong>Phonon Central</strong> — integrates Intelligent IVR, Proactive Outbound Engagement, Visual IVR, Click-to-Call™, and a full Contact Centre Automation Suite into one unified, enterprise-grade offering.
+            </p>
+            <p class="sponsor-desc">
+              Phonon's infrastructure is compliant with <strong>PCI DSS 2.0</strong> security standards and hosted in <strong>ISO:27001</strong> certified data centres, making them a trusted partner to some of India's most prominent institutions — including Axis Bank, HDFC Life, Yes Bank, IndiGo, Vistara, and Aditya Birla Capital. Phonon has been recognized by <strong>Deloitte's Technology Fast 50</strong> and is a <strong>Google Cloud Partner</strong>, a <strong>NASSCOM</strong> member, and an AWS and IBM Watson integrated platform.
+            </p>
+
+            <div class="sponsor-chips">
+              <span class="chip">Intelligent IVR</span>
+              <span class="chip">Contact Centre Automation</span>
+              <span class="chip">Proactive Outbound Engagement</span>
+              <span class="chip">Visual IVR</span>
+              <span class="chip">Click-to-Call™</span>
+              <span class="chip">AI &amp; ML Powered</span>
+              <span class="chip">Google Cloud Partner</span>
+              <span class="chip">PCI DSS 2.0 Compliant</span>
+            </div>
+
+            <div class="gratitude">
+              <p>
+                The <strong>Departmental Statistics Association</strong> and the entire DataVerse 2026 organizing committee extend their deepest and most sincere gratitude to <strong>Phonon Communications Pvt. Ltd.</strong> for their generous sponsorship and unwavering support. Their belief in the potential of young data practitioners, and their commitment to fostering innovation and analytical excellence among students, has been instrumental in making DataVerse 2026 a truly distinguished and impactful event. We are honoured by their association and immensely grateful for their contribution to the advancement of data-driven education at MSU Baroda.
+              </p>
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>
