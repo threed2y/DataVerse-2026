@@ -114,6 +114,20 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 footer p{color:var(--muted);font-size:.88rem;font-family:'Space Mono',monospace}
 .rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rev.vis{opacity:1;transform:translateY(0)}
+.wbs-wrap{position:relative;z-index:1;padding:0 20px 0;display:flex;justify-content:center}
+.wbs-card{max-width:680px;width:100%;background:linear-gradient(135deg,rgba(0,102,255,.10),rgba(124,58,237,.13));border:1px solid rgba(0,212,255,.32);border-radius:20px;padding:50px 44px;text-align:center;backdrop-filter:blur(20px);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(0,212,255,.08),0 20px 60px rgba(0,0,0,.4)}
+.wbs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),transparent)}
+.wbs-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--violet),var(--cyan),transparent)}
+.wbs-icon{font-size:2.8rem;margin-bottom:18px;display:block;animation:wbsPulse 3s ease-in-out infinite}
+@keyframes wbsPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 8px rgba(0,212,255,.4))}50%{transform:scale(1.08);filter:drop-shadow(0 0 18px rgba(0,212,255,.8))}}
+.wbs-label{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.32em;color:var(--cyan);text-transform:uppercase;margin-bottom:16px;display:block}
+.wbs-title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:.04em;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,var(--cyan) 60%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.15}
+.wbs-sub{color:#94a3b8;font-size:1.05rem;line-height:1.75;font-family:'Rajdhani',sans-serif;font-weight:400;max-width:460px;margin:0 auto 28px}
+.wbs-dots{display:flex;justify-content:center;gap:10px;margin-top:24px}
+.wbs-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:dotBlink 1.6s ease-in-out infinite}
+.wbs-dot:nth-child(2){background:var(--violet);animation-delay:.3s}
+.wbs-dot:nth-child(3){background:var(--blue);animation-delay:.6s}
+@keyframes dotBlink{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
 .hm{padding:100px 20px 56px;text-align:center}
 .hm .ht{font-size:clamp(2rem,5.5vw,3.8rem);margin-bottom:14px}
 @keyframes fid{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
@@ -169,6 +183,20 @@ footer p{color:var(--muted);font-size:.88rem;font-family:'Space Mono',monospace}
     </div>
   </section>
 
+  <div class="wbs-wrap">
+    <div class="wbs-card rev">
+      <span class="wbs-icon">🛰️</span>
+      <span class="wbs-label">Status Update</span>
+      <div class="wbs-title">We'll Be Back Soon</div>
+      <p class="wbs-sub">DataVerse 2026 has concluded. We're working on something new — stay tuned for updates from the Departmental Statistics Association.</p>
+      <div class="wbs-dots">
+        <div class="wbs-dot"></div>
+        <div class="wbs-dot"></div>
+        <div class="wbs-dot"></div>
+      </div>
+    </div>
+  </div>
+
   <section>
     <div class="cnt">
       <div class="sg rev">
@@ -191,7 +219,7 @@ footer p{color:var(--muted);font-size:.88rem;font-family:'Space Mono',monospace}
         <h2>Ready to compete?</h2>
         <p>Explore competition rounds and check out the winning projects.</p>
         <div class="cls">
-          <a href="mailto:dataversestats@gmail.com" class="ci">✉ dataversestats@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#31555045504754434254424550454271565c50585d1f525e5c" class="ci">✉ <span class="__cf_email__" data-cfemail="2e4a4f5a4f584b5c5d4b5d5a4f5a5d6e49434f4742004d4143">[email&#160;protected]</span></a>
           <a href="tel:+916354093708" class="ci">📞 Dharmik: +91 63540 93708</a>
           <a href="tel:+916354093708" class="ci">📞 Alok: +91 63539 08759</a>
         </div>
@@ -205,7 +233,7 @@ footer p{color:var(--muted);font-size:.88rem;font-family:'Space Mono',monospace}
   <p>Departmental Statistics Association · Dept. of Statistics · Faculty of Science · MSU Baroda · Est. 1949</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var c=document.getElementById('sf'),x=c.getContext('2d'),S=[];
   function R(){c.width=innerWidth;c.height=innerHeight;}
@@ -215,10 +243,4 @@ footer p{color:var(--muted);font-size:.88rem;font-family:'Space Mono',monospace}
 })();
 function tN(){document.getElementById('nls').classList.toggle('open');}
 (function(){
-  var els=document.querySelectorAll('.rev');
-  var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.08});
-  els.forEach(function(r){obs.observe(r);});
-})();
-</script>
-</body>
-</html>
+  var els=doc
