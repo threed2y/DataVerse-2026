@@ -166,6 +166,27 @@ Built with pure HTML, CSS, and JavaScript — fully static, no dependencies, dep
 
 ---
 
+## 🗂️ Datasets
+
+The official competition dataset is hosted on Hugging Face, containing global development indicators spanning economic, environmental, health, digital, and governance dimensions across world regions from 2000–2020.
+
+**[🤗 huggingface.co/datasets/sleepysaurus/DataVerse](https://huggingface.co/datasets/sleepysaurus/DataVerse)**
+
+| Field | Details |
+|---|---|
+| **Observations** | ~1,000+ region-year rows |
+| **Columns** | 47 features across economic, environmental, health, digital & governance domains |
+| **License** | MIT |
+| **Format** | Parquet / CSV (HuggingFace `datasets` compatible) |
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("sleepysaurus/DataVerse")
+```
+
+---
+
 ## 📬 Contact
 
 | | |
